@@ -20,24 +20,47 @@ moment.updateLocale('es', {
   },
 });
 
-const News = ({ news }) => {
+import {
+  Card,
+  CardHeader,
+  CardContent,
+  CardActions,
+  Typography,
+  IconButton,
+} from '@mui/material';
+
+import { Favorite as FavoriteIcon } from '@mui/icons-material';
+import { Share as ShareIcon } from '@mui/icons-material';
+import { Comment } from '@mui/icons-material';
+
+function News({ news }) {
   return (
-    <li className='news'>
-      <header>
-        <h2>{news.title}</h2>
-        <time dateTime={news.created_at}>
-          {moment(news.created_at).fromNow()}
-        </time>
-      </header>
-      <div>
-        <p>{news.content}</p>
+    <Card sx={{ maxWidth: 845, margin: 10 }}>
+      <CardHeader
+        title={news.title}
+        subheader={moment(news.created_at).fromNow()}
+      />
+      <CardContent>
+        <Typography variant='body2' color='text.secondary'>
+          {news.content}
+        </Typography>
         {news.image && (
           <img src={`http://localhost:3002/${news.image}`} alt={news.title} />
         )}
-      </div>
-      <footer>Botones</footer>
-    </li>
+      </CardContent>
+      <CardActions disableSpacing>
+        <IconButton aria-label='add to favorites'>
+          <FavoriteIcon />
+        </IconButton>
+        <IconButton aria-label='share'>
+          <ShareIcon />
+        </IconButton>
+        <IconButton aria-label='comment'>
+          <Comment />
+        </IconButton>
+      </CardActions>
+    </Card>
   );
-};
+}
 
 export default News;

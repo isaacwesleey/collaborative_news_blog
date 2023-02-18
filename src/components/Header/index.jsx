@@ -12,7 +12,11 @@ function Header() {
     <AppBar position='static'>
       <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
         <IconButton edge='start' color='inherit' aria-label='menu'>
-          <img src='/path/to/logo.png' alt='Logo' height='40' />
+          <img
+            src='https://1000marcas.net/wp-content/uploads/2020/02/logo-Google.png'
+            alt='Logo'
+            height='40'
+          />
         </IconButton>
         <Typography variant='h6' component='div'>
           Mi Blog
